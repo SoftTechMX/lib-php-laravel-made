@@ -3,7 +3,7 @@
 namespace SoftTechMX\LaravelMade;
 
 use Illuminate\Support\ServiceProvider;
-use SoftTechMX\LaravelMade\Console\Commands\InstallCommand;
+use SoftTechMX\LaravelMade\Console\Commands\LaravelMadeInstallCommand;
 
 class LaravelMadeServiceProvider extends ServiceProvider
 {
