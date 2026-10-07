@@ -4,7 +4,7 @@ namespace SoftTechMX\LaravelMade\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class InstallCommand extends Command
+class LaravelMadeInstallCommand extends Command
 {
     protected $signature = 'laravel-made:install';
 
@@ -36,6 +36,11 @@ class InstallCommand extends Command
             'command' => 'livewire:publish',
             'params'  => ['--pagination' => true],
         ],
+        [
+            'label'   => 'Generando scaffolding de autenticación con Bootstrap (laravel/ui)',
+            'command' => 'ui',
+            'params'  => ['type' => 'bootstrap', '--auth' => true],
+        ],
     ];
 
     public function handle(): int
@@ -58,6 +63,7 @@ class InstallCommand extends Command
 
         $this->info('Listo. Todas las dependencias fueron inicializadas correctamente.');
         $this->comment('Recuerda correr "php artisan migrate" para aplicar las migraciones publicadas.');
+        $this->comment('Y luego "npm install && npm run build" para compilar los assets de laravel/ui.');
 
         return self::SUCCESS;
     }
