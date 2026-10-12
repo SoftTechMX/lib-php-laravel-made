@@ -54,6 +54,9 @@ class LaravelMadeInstallCommand extends Command
     protected array $npmPackages = [
         'aos@^3.0.0-beta.6',
         'glightbox@^3',
+        'sweetalert2@^11.26.25',
+        'apexcharts@^8.1.0',
+        '@popperjs/core@^2.11.8',
         'bootstrap@^5',
         'bootstrap-icons@^1',
         'isotope-layout@^3',
@@ -62,6 +65,11 @@ class LaravelMadeInstallCommand extends Command
         'swiper@^14',
         'toastr@^2',
         'typed.js@^3',
+        '@fullcalendar/core@^6.1.21',
+        '@fullcalendar/daygrid@^6.1.21',
+        '@fullcalendar/interaction@^6.1.21',
+        '@fullcalendar/list@^6.1.21',
+        '@fullcalendar/timegrid@^6.1.21',
     ];
 
     /** stub (en /stubs) => destino (relativo a base_path) */

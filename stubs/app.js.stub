@@ -15,6 +15,21 @@ import 'aos/dist/aos.css';
 window.Aos = Aos;
 window.AOS = Aos;
 
+// ApexCharts
+// =================================================================================== //
+//                  _                     ____ _                _                      //
+//                 / \   _ __   _____  __/ ___| |__   __ _ _ __| |_ ___                //
+//                / _ \ | '_ \ / _ \ \/ / |   | '_ \ / _` | '__| __/ __|               //
+//               / ___ \| |_) |  __/>  <| |___| | | | (_| | |  | |_\__ \               //
+//              /_/   \_\ .__/ \___/_/\_\\____|_| |_|\__,_|_|   \__|___/               //
+//                      |_|                                                            //
+//                            https://apexcharts.com/                                  //
+//                        npm install --save apexcharts                                //
+// =================================================================================== //
+import ApexCharts from 'apexcharts';
+window.ApexCharts = ApexCharts;
+
+
 
 // Axios
 // =================================================================================== //
@@ -74,6 +89,35 @@ document.addEventListener('DOMContentLoaded', function () {
     //     return new bootstrap.Modal(element);
     // });
 });
+
+
+// FullCalendar
+// =================================================================================== //
+//                                                                                     //
+//                 _____      _ _  ____      _                _                        //
+//                |  ___|   _| | |/ ___|__ _| | ___ _ __   __| | __ _ _ __             //
+//                | |_ | | | | | | |   / _` | |/ _ \ '_ \ / _` |/ _` | '__|            //
+//                |  _|| |_| | | | |__| (_| | |  __/ | | | (_| | (_| | |               // 
+//                |_|   \__,_|_|_|\____\__,_|_|\___|_| |_|\__,_|\__,_|_|               //
+//                                                                                     //
+//                  https://fullcalendar.io/docs/initialize-browser-esm                //
+// npm install @fullcalendar/core @fullcalendar/daygrid @fullcalendar/timegrid @fullcalendar/list @fullcalendar/interaction
+// =================================================================================== //
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import dayGridMonth from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import esLocale from '@fullcalendar/core/locales/es';
+import interactionPlugin from '@fullcalendar/interaction';
+
+window.Calendar          = Calendar;
+window.dayGridPlugin     = dayGridPlugin;
+window.dayGridMonth      = dayGridMonth;
+window.timeGridPlugin    = timeGridPlugin;
+window.listPlugin        = listPlugin;
+window.esLocale          = esLocale;
+window.interactionPlugin = interactionPlugin;
 
 
 // GLightbox
@@ -167,6 +211,28 @@ window.PureCounter = PureCounter;
 
 document.addEventListener('DOMContentLoaded', () => {
     new PureCounter();
+});
+
+
+// SweetAlert2
+// =================================================================================== //
+//               ____                   _      _    _           _                      //
+//              / ___|_      _____  ___| |_   / \  | | ___ _ __| |_                    //
+//              \___ \ \ /\ / / _ \/ _ \ __| / _ \ | |/ _ \ '__| __|                   //
+//               ___) \ V  V /  __/  __/ |_ / ___ \| |  __/ |  | |_                    //
+//              |____/ \_/\_/ \___|\___|\__/_/   \_\_|\___|_|   \__|                   //
+//                                                                                     //
+//                                                                                     //
+//                         npm install --save sweetalert2                              //
+// =================================================================================== //
+import Swal from 'sweetalert2';
+window.Swal = Swal;
+
+/**
+ * @see: https://talltips.novate.co.uk/livewire/sweetalert2-with-livewire
+ */
+window.addEventListener('swal', function (e) {
+    Swal.fire(e.detail[0]);
 });
 
 
