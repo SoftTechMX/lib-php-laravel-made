@@ -1,0 +1,23 @@
+// Variables
+@import 'variables';
+
+// Bootstrap 5
+// URL: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+// CMD: npm install bootstrap@5.3
+@import 'bootstrap/scss/bootstrap';
+
+// Bootstrap Icons
+// Icon List: https://icons.getbootstrap.com/
+// URL: https://getbootstrap.com/docs/5.2/extend/icons/
+// CMD: npm install bootstrap-icons --save
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// GLightbox
+// URL: https://www.npmjs.com/package/glightbox
+// CMD: npm install glightbox --save
+@import 'glightbox/dist/css/glightbox.min';
+
+// Toastr
+// URL: https://www.npmjs.com/package/toastr
+// CMD: npm i toastr --save
+@import 'toastr/toastr';
