@@ -141,7 +141,6 @@ class LaravelMadeInstallCommand extends Command
         return preg_replace('/^\d{4}_\d{2}_\d{2}_\d{6}_/', '', $name);
     }
 
-
     protected function publishStubs(): void
     {
         foreach ($this->stubs as $stub => $destination) {
@@ -225,6 +224,35 @@ class LaravelMadeInstallCommand extends Command
         $this->info('✔ resources/js/app.js publicado.');
     }
 
+    protected function runArtisanCommands(): bool
+    {
+        $this->line('→ Creando enlace simbólico de storage');
+
+        if (is_link(public_path('storage')) || file_exists(public_path('storage'))) {
+            $this->warn('  Omitido: public/storage ya existe.');
+        } else {
+            $this->call('storage:link');
+        }
+
+        $this->newLine();
+
+        if ($this->option('skip-migrate')) {
+            $this->warn('Migraciones omitidas (--skip-migrate).');
+            return true;
+        }
+
+        $this->line('→ Ejecutando migraciones');
+
+        if ($this->call('migrate', ['--force' => true]) !== self::SUCCESS) {
+            $this->error('Falló migrate. Revisa la conexión a la base de datos en tu .env.');
+            return false;
+        }
+
+        $this->newLine();
+
+        return true;
+    }
+
     public function handle(): int
     {
         $this->info('Configurando dependencias del Backend ...');
@@ -261,8 +289,14 @@ class LaravelMadeInstallCommand extends Command
         $this->newLine();
 
         $this->info('Listo. Todas las dependencias fueron inicializadas correctamente.');
-        $this->comment('Recuerda correr "php artisan migrate" para aplicar las migraciones publicadas.');
-        $this->comment('Y luego "npm install && npm run build" para compilar los assets de laravel/ui.');
+
+        if (empty(config('app.key'))) {
+            $this->call('key:generate');
+        }
+
+        if (! $this->runArtisanCommands()) {
+            return self::FAILURE;
+        }
 
         return self::SUCCESS;
     }
